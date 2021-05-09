@@ -1,1 +1,1 @@
-# EKS by Teraform
+# EKS by Terraform
