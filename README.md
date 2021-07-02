@@ -1,9 +1,8 @@
 # EKS by Terraform
 
+Before Using Terraform
 ```shell
-docker-compose build
-docker-compose up -d
-docker-compose exec amzn bash
+aws configure
 ```
 
 ```bash
