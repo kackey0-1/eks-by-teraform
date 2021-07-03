@@ -16,6 +16,11 @@ module "eks" {
     }
   }
   write_kubeconfig = false
+
+  tags = {
+    CreatedBy = local.createdBy
+    CreatedFor = local.createdFor
+  }
 }
 
 data "aws_eks_cluster" "cluster" {

@@ -42,3 +42,10 @@ $ terraform destroy
   - if you want, you can use worker_groups field
 - Kubernetes
   - make terraform able to access kubernetes cluster
+
+```shell
+# setup kubeconfig
+$ aws eks --region ap-northeast-1 update-kubeconfig --name eks-test-env
+# get all pods
+$ kubectl get pods -A -o wide
+```

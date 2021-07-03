@@ -12,6 +12,11 @@ module "vpc" {
     "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     "kubernetes.io/role/elb" = "1"
   }
+
+ tags = {
+    CreatedBy = local.createdBy
+    CreatedFor = local.createdFor
+  }
 }
 
 
