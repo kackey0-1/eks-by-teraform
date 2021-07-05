@@ -49,3 +49,8 @@ $ aws eks --region ap-northeast-1 update-kubeconfig --name eks-test-env
 # get all pods
 $ kubectl get pods -A -o wide
 ```
+
+## web app(Sock Shop)
+```shell
+$ kubectl create ns sock-shop
+```
