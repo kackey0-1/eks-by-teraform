@@ -46,6 +46,10 @@ $ terraform destroy
 ```shell
 # setup kubeconfig
 $ aws eks --region ap-northeast-1 update-kubeconfig --name eks-test-env
+# create namespace
+$ kubectl create ns sock-shop
+# deploy application to k8s cluster
+$ kubectl apply -f .
 # get all pods
 $ kubectl get pods -A -o wide
 ```
