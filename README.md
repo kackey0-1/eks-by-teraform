@@ -44,14 +44,27 @@ $ terraform destroy
   - make terraform able to access kubernetes cluster
 
 ```shell
+# check user arn
+$ aws sts get-caller-identity
 # setup kubeconfig
-$ aws eks --region ap-northeast-1 update-kubeconfig --name eks-test-env
+$ aws eks update-kubeconfig --name eks-example --region ap-northeast-1 
+$ aws eks update-kubeconfig --name eks-cluster-name --region aws-region --role-arn arn:aws:iam::XXXXXXXXXXXX:role/testrole
 # create namespace
 $ kubectl create ns sock-shop
 # deploy application to k8s cluster
 $ kubectl apply -f .
 # get all pods
 $ kubectl get pods -A -o wide
+
+### Add user by admin user
+$ aws sts get-caller-identity
+$ kubectl edit configmap aws-auth -n kube-system
+# add user to mapUsers directive
+mapUsers: |
+  - userarn: arn:aws:iam::XXXXXXXXXXXX:user/testuser
+    username: testuser
+    groups:
+      - system:masters
 ```
 
 ## web app(Sock Shop)
